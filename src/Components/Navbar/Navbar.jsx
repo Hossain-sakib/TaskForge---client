@@ -1,13 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-    const navLinks = 
-    <>
-     <NavLink to="/"><li className="font-semibold text-lg overflow-hidden transition-all hover:scale-105 p-2 hover:shadow-2xl hover:bg-blue-800">Home</li></NavLink>
-     <li className="font-semibold text-lg overflow-hidden transition-all hover:scale-105 p-2 hover:shadow-2xl hover:bg-blue-800">About Us</li>
-     <li className="font-semibold text-lg overflow-hidden transition-all hover:scale-105 p-2 hover:shadow-2xl hover:bg-blue-800">Contact</li>
+    const navLinks =
+        <>
+            <NavLink to="/"><li className="font-semibold text-lg overflow-hidden transition-all hover:scale-105 p-2 hover:shadow-2xl hover:bg-blue-800">Home</li></NavLink>
+            <li className="font-semibold text-lg overflow-hidden transition-all hover:scale-105 p-2 hover:shadow-2xl hover:bg-blue-800">About Us</li>
+            <li className="font-semibold text-lg overflow-hidden transition-all hover:scale-105 p-2 hover:shadow-2xl hover:bg-blue-800">Contact</li>
 
-    </>
+        </>
     return (
         <div className="navbar fixed z-10 bg-blue-600 text-white max-w-screen-xl mx-auto">
             <div className="navbar-start">
@@ -31,7 +31,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn btn-outline border-white text-white hover:bg-blue-800">Let's Explore</a>
+                <Link to="/signin" className="btn btn-outline border-white text-white hover:bg-blue-800">Let's Explore</Link>
             </div>
         </div>
     );
