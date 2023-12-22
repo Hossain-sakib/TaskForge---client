@@ -47,8 +47,8 @@ const SignIn = () => {
 
     return (
         <div className="hero min-h-screen mb-24">
-            <div className="hero-content flex-col">
-                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 rounded-lg border-2 border-blue-600">
+            <div className="hero-content flex-col rounded-none">
+                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 rounded-none border-2 border-blue-600">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body bg-blue-50">
                         {error && (
                             <div className="mb-4 text-red-500">
@@ -63,7 +63,7 @@ const SignIn = () => {
                                 type="email"
                                 placeholder="email"
                                 {...register('email', { required: true })}
-                                className={`input border-blue-400 input-bordered ${errors.email ? 'border-red-500' : ''}`}
+                                className={`rounded-none input border-blue-400 input-bordered ${errors.email ? 'border-red-500' : ''}`}
                             />
                             {errors.email && <span className="text-xs text-red-500">Email is required</span>}
                         </div>
@@ -75,7 +75,7 @@ const SignIn = () => {
                                 type="password"
                                 placeholder="password"
                                 {...register('password', { required: true })}
-                                className={`input border-blue-400 input-bordered ${errors.password ? 'border-red-500' : ''}`}
+                                className={`rounded-none input border-blue-400 input-bordered ${errors.password ? 'border-red-500' : ''}`}
                             />
                             {errors.password && <span className="text-xs text-red-500">Password is required</span>}
                             <label className="label">
@@ -83,7 +83,7 @@ const SignIn = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button type="submit" className="btn bg-blue-300 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105 hover:shadow-2xl">Sign In</button>
+                            <button type="submit" className="btn bg-blue-300 rounded-none hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105 hover:shadow-2xl">Sign In</button>
                         </div>
                     </form>
                     {/* <SocialSignIn /> */}
