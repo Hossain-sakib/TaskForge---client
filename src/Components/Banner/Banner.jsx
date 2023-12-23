@@ -9,7 +9,7 @@ const Banner = () => {
                 <div className="hero-overlay bg-black bg-opacity-75"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="">
-                        <h1 className="mb-5 text-5xl font-bold">Empower Your Productivity with TaskBoook</h1>
+                        <h1 className="mb-5 text-5xl font-bold">Empower Your Productivity with TaskForge</h1>
                         <div className="mb-5">
                             <TypeAnimation
                                 sequence={[
@@ -29,7 +29,7 @@ const Banner = () => {
                                 repeat={Infinity}
                             />
                         </div>
-                        <Link to='/login' className="btn btn-success">Let's Explore</Link>
+                        <Link to='/signin' className="btn btn-outline rounded-none border-white text-white hover:bg-blue-800 overflow-hidden transition-all hover:scale-105  hover:shadow-2xl">Let's Explore</Link>
                     </div>
                 </div>
             </div>

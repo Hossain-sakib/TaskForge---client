@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import useAuth from '../../Hooks/UseAuth';
+import GoogleSignIn from '../../Components/GoogleSignIn/GoogleSignIn';
 
 
 const SignIn = () => {
@@ -19,6 +20,7 @@ const SignIn = () => {
             const { email, password } = data;
             const result = await signInUser(email, password);
             const user = result.user;
+            console.log(user);
 
             Swal.fire({
                 title: 'Successfully signed in',
@@ -86,7 +88,7 @@ const SignIn = () => {
                             <button type="submit" className="btn bg-blue-300 rounded-none hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105 hover:shadow-2xl">Sign In</button>
                         </div>
                     </form>
-                    {/* <SocialSignIn /> */}
+               <GoogleSignIn></GoogleSignIn>
                     <p className='text-center text-blue-500 font-semibold py-4'><small>New Here? Please </small><Link to='/signup' className='hover:underline hover:font-bold'>Sign Up.</Link></p>
                 </div>
             </div>
