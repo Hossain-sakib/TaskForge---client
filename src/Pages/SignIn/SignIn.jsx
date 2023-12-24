@@ -74,7 +74,7 @@ const SignIn = () => {
                         <div className="form-control mt-6">
                             <button
                                 type="submit"
-                                className="btn bg-blue-300 rounded-none hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105 hover:shadow-2xl"
+                                className="btn bg-blue-200 rounded-none hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105 hover:shadow-2xl"
                                 disabled={formState.isSubmitting}
                             >
                                 Sign In

@@ -30,13 +30,7 @@ export const router = createBrowserRouter([
     {
         path: "dashboard",
         element: <Dashboard></Dashboard>,
-        children: [
-          {
-            path: "viewtask",
-            element:<ViewTasks></ViewTasks>
-          },
-        ],
-      },
+    },
    
    
 ]);

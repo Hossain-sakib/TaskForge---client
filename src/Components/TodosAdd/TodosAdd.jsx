@@ -43,7 +43,7 @@ const TodosAdd = () => {
                         <input name="deadline" type="date" className="input input-bordered" />
                         <input name="deadline_time" type="time" className="input input-bordered" />
                         <select name="priority" className="select select-bordered">
-                            <option disabled selected>Select Priority</option>
+                            <option disabled defaultValue={'Select Priority'}>Select Priority</option>
                             <option value='low'>Low</option>
                             <option value='moderate'>Moderate</option>
                             <option value='high'>High</option>
