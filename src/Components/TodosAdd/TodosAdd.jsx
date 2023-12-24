@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import { FirebaseContext } from "../../context/AuthContext";
-import useAxios from "../../hooks/useAxios";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/UseAuth";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
-const AddTodos = () => {
-    const {user} = useContext(FirebaseContext);
-    const axiosPublic = useAxios();
+const TodosAdd = () => {
+    const {user} = useAuth();
+    const axiosPublic = useAxiosPublic();
     const handleAddTodo = e =>{
         e.preventDefault();
         const form = e.target;
@@ -57,4 +56,4 @@ const AddTodos = () => {
     );
 };
 
-export default AddTodos;
+export default TodosAdd;
