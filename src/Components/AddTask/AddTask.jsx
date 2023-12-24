@@ -7,7 +7,7 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 const AddTask = () => {
     const {user}=useContext(AuthContext)
     const { register, handleSubmit ,reset } = useForm()
-    const axiosPublic=useAxiosPublic()
+    const axiosPublic=useAxiosPublic();
     const onSubmit = async (data) => {
         console.log(data)
             const menuItem = {
@@ -19,12 +19,11 @@ const AddTask = () => {
             const menuRes = await axiosPublic.post('/addtask', menuItem);
             console.log(menuRes.data)
             if(menuRes.data.insertedId){
-                // show success popup
                    reset();
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title:"Task Added",
+                    title:"Task Added Successfully",
                     showConfirmButton: false,
                     timer: 1500
                   });
