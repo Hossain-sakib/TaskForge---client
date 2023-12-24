@@ -41,6 +41,7 @@ const SignUp = () => {
 
       const result = await signUpUser(email, password);
       const user = result.user;
+      console.log(user);
 
       const formDataWithPhoto = new FormData();
       formDataWithPhoto.append("image", photo[0]);
@@ -80,7 +81,7 @@ const SignUp = () => {
                     `,
           },
         });
-        navigate("/");
+        navigate("/dashboard");
       }
     } catch (error) {
       console.error("Error during sign up:", error);

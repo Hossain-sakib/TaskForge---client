@@ -1,13 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/UseAuth";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const Navbar = () => {
     const navLinks =
         <>
-            <NavLink to="/"><li className="font-semibold text-lg overflow-hidden transition-all hover:scale-105 p-2 hover:shadow-2xl hover:bg-blue-800">Home</li></NavLink>
-            <li className="font-semibold text-lg overflow-hidden transition-all hover:scale-105 p-2 hover:shadow-2xl hover:bg-blue-800">About Us</li>
-            <li className="font-semibold text-lg overflow-hidden transition-all hover:scale-105 p-2 hover:shadow-2xl hover:bg-blue-800">Contact</li>
-
+            <NavLink to="/"><li className="px-4 py-2 rounded-none  font-semibold hover:bg-base-100 hover:bg-opacity-10 hover:font-bold flex   items-center gap-2 overflow-hidden transition-all hover:scale-105  hover:shadow-2xl">Home</li></NavLink>
+            <li className="px-4 py-2 rounded-none  font-semibold hover:bg-base-100 hover:bg-opacity-10 hover:font-bold flex   items-center gap-2 overflow-hidden transition-all hover:scale-105  hover:shadow-2xl">About Us</li>
+            <li className="px-4 py-2 rounded-none  font-semibold hover:bg-base-100 hover:bg-opacity-10 hover:font-bold flex   items-center gap-2 overflow-hidden transition-all hover:scale-105  hover:shadow-2xl">Contact</li>
         </>
+        const { signOutUser, user } = useAuth();
     return (
         <div className="navbar fixed z-10 bg-blue-600 text-white max-w-screen-xl mx-auto">
             <div className="navbar-start">
@@ -31,7 +33,52 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/signin" className="btn btn-outline rounded-none border-white text-white hover:bg-blue-800">Sign in</Link>
+         
+                    <div>
+                        {user?.email ? (
+                            <div className="dropdown dropdown-end ">
+                                <label tabIndex={0} className="cursor-pointer">
+                                    <div className="avatar">
+                                        <div className="w-10 rounded-full overflow-hidden transition-all hover:scale-105  hover:shadow-2xl ">
+                                            <img src={user?.photoURL} alt={user.displayName} />
+                                        </div>
+                                    </div>
+                                </label>
+                                <div
+                                    tabIndex={0}
+                                    className="menu menu-sm border-1 border-white dropdown-content mt-3 z-[1] p-2 shadow  rounded-none w-52 bg-blue-600 bg-opacity-80 space-y-2"
+                                >
+                                    <NavLink
+
+                                        className="px-4 py-2  rounded-none flex  font-semibold  items-center gap-2"
+                                    >
+                                        {user?.displayName}
+                                    </NavLink>
+                                    <NavLink to={`/dashboard/viewtask`}
+
+                                        className="px-4 py-2 rounded-none  font-semibold
+                                        hover:bg-base-100 hover:bg-opacity-10 hover:font-bold flex   items-center gap-2
+                                        overflow-hidden transition-all hover:scale-105  hover:shadow-2xl"
+                                    >
+                                        Dashboard
+                                    </NavLink>
+                                    <div
+                                        onClick={signOutUser}
+                                        className="cursor-pointer text-red-500 px-4 py-2  rounded-none font-bold hover:bg-base-100 hover:bg-opacity-10 hover:font-extrabold flex  items-center gap-2 overflow-hidden transition-all hover:scale-105  hover:shadow-2xl"
+                                    >
+                                        Sign Out <AiOutlineLogout className="text-xl"></AiOutlineLogout>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <NavLink
+                                to="/signin"
+                                className="btn btn-outline rounded-none bg-blue-300 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl  "
+                            >
+                                Sign in
+                            </NavLink>
+                        )}
+                </div>
             </div>
         </div>
     );

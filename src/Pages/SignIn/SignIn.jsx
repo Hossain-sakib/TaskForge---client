@@ -12,7 +12,7 @@ const SignIn = () => {
 
     const { register, handleSubmit, formState,  } = useForm();
     const [error, setErrorState] = useState(null);
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/dashboard';
 
     const onSubmit = async (data) => {
         try {
