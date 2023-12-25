@@ -6,7 +6,6 @@ import SignIn from "../Pages/SignIn/SignIn";
 import Home from "../Pages/Home/Home";
 import SignUp from "../Pages/SignUp/SignUp";
 import Dashboard from "../Layout/Dashboard";
-import ViewTasks from "../Components/ViewTasks/ViewTasks";
 
 export const router = createBrowserRouter([
     {

@@ -3,9 +3,9 @@ import useAuth from "../../Hooks/UseAuth";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const TodosAdd = () => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
-    const handleAddTodo = e =>{
+    const handleAddTodo = e => {
         e.preventDefault();
         const form = e.target;
         const title = form.title.value;
@@ -18,37 +18,36 @@ const TodosAdd = () => {
         }
 
         axiosPublic.post("/todos", result)
-        .then(result=>{
-
-            if(result.data.acknowledged){
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: `Task has been added!`,
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                form.reset();
-            }
-        })
+            .then(result => {
+                if (result.data.acknowledged) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: `Task has been added!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    form.reset();
+                }
+            })
     }
     return (
-        <div>
+        <div className="bg-blue-50">
             <div className="p-4 md:p-10">
-                <h1 className="text-center font-medium text-4xl">What's on your mind today?</h1>
+                <h1 className="text-center text-blue-600 font-medium text-4xl">Note Your Tasks Here</h1>
                 <div className="pt-4">
                     <form onSubmit={handleAddTodo} className="flex flex-col md:flex-row justify-center md:items-center gap-4">
-                        <input name="title" type="text" className="input input-bordered" placeholder="Task Title" />
-                        <input name="description" type="text" className="input input-bordered" placeholder="Task Description" />
-                        <input name="deadline" type="date" className="input input-bordered" />
-                        <input name="deadline_time" type="time" className="input input-bordered" />
-                        <select name="priority" className="select select-bordered">
-                            <option disabled defaultValue={'Select Priority'}>Select Priority</option>
+                        <input name="title" type="text" className="input input-bordered rounded-none border-blue-300" placeholder="Task Title" />
+                        <input name="description" type="text" className="input input-bordered rounded-none border-blue-300" placeholder="Task Description" />
+                        <input name="deadline" type="date" className="input input-bordered rounded-none border-blue-300" />
+                        <input name="deadline_time" type="time" className="input input-bordered rounded-none border-blue-300" />
+                        <select name="priority" className="select select-bordered rounded-none border-blue-300">
+                            <option disabled defaultValue>Select Priority</option>
                             <option value='low'>Low</option>
                             <option value='moderate'>Moderate</option>
                             <option value='high'>High</option>
                         </select>
-                        <input type="submit" value="Add Task" className="btn" />
+                        <input type="submit" value="Add Task" className="btn btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl  " />
                     </form>
                 </div>
             </div>

@@ -4,12 +4,13 @@ import { AiOutlineLogout } from "react-icons/ai";
 
 const Navbar = () => {
     const { signOutUser, user } = useAuth();
-   
+
     const navLinks =
         <>
-            <NavLink to="/"><li className="px-4 py-2 rounded-none  font-semibold hover:bg-base-100 hover:bg-opacity-10 hover:font-bold flex   items-center gap-2 overflow-hidden transition-all hover:scale-105  hover:shadow-2xl">Home</li></NavLink>
-            <li className="px-4 py-2 rounded-none  font-semibold hover:bg-base-100 hover:bg-opacity-10 hover:font-bold flex   items-center gap-2 overflow-hidden transition-all hover:scale-105  hover:shadow-2xl">About Us</li>
-            <li className="px-4 py-2 rounded-none  font-semibold hover:bg-base-100 hover:bg-opacity-10 hover:font-bold flex   items-center gap-2 overflow-hidden transition-all hover:scale-105  hover:shadow-2xl">Contact</li>
+            <NavLink to="/"><li className="w-full btn btn-sm btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl ">Home</li></NavLink>
+            <NavLink to="/"><li className="w-full btn btn-sm btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl ">About Us</li></NavLink>
+            <NavLink to="/"><li className="w-full btn btn-sm btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl ">Contact</li></NavLink>
+           
         </>
 
     return (
@@ -51,22 +52,19 @@ const Navbar = () => {
                                 className="menu menu-sm border-1 border-white dropdown-content mt-3 z-[1] p-2 shadow  rounded-none w-52 bg-blue-400 bg-opacity-80 space-y-2"
                             >
                                 <NavLink
-
-                                    className="px-4 py-2  rounded-none flex  font-semibold  items-center gap-2"
-                                >
-                                    {user?.displayName}
-                                </NavLink>
+                                            className="btn btn-sm btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl "
+                                        >
+                                            {user?.displayName}
+                                        </NavLink>
                                 <NavLink to={`/dashboard`}
 
-                                    className="px-4 py-2 rounded-none  font-semibold
-                                        hover:bg-base-100 hover:bg-opacity-10 hover:font-bold flex   items-center gap-2
-                                        overflow-hidden transition-all hover:scale-105  hover:shadow-2xl"
+                                    className="btn btn-sm btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl "
                                 >
                                     Dashboard
                                 </NavLink>
                                 <div
                                     onClick={signOutUser}
-                                    className="cursor-pointer text-red-500 px-4 py-2  rounded-none font-bold hover:bg-base-100 hover:bg-opacity-10 hover:font-extrabold flex  items-center gap-2 overflow-hidden transition-all hover:scale-105  hover:shadow-2xl"
+                                    className="btn btn-sm btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl "
                                 >
                                     Sign Out <AiOutlineLogout className="text-xl"></AiOutlineLogout>
                                 </div>

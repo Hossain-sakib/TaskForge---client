@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 const Banner = () => {
     return (
         <div>
-            <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)' }}>
+            <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/8Mpvvmn/glenn-carstens-peters-RLw-UC03-Gwc-unsplash.jpg)' }}>
                 <div className="hero-overlay bg-black bg-opacity-75"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="">

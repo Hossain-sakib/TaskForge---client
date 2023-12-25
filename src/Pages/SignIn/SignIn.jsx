@@ -22,13 +22,11 @@ const SignIn = () => {
             console.log(user);
 
             Swal.fire({
-                title: 'Successfully signed in',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInUp animate__faster',
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutDown animate__faster',
-                },
+                position: "center",
+                icon: "success",
+                title: "User Signed In!",
+                showConfirmButton: false,
+                timer: 1500
             });
 
             navigate(from, { replace: true });
@@ -74,7 +72,7 @@ const SignIn = () => {
                         <div className="form-control mt-6">
                             <button
                                 type="submit"
-                                className="btn bg-blue-200 rounded-none hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105 hover:shadow-2xl"
+                                className="btn btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl "
                                 disabled={formState.isSubmitting}
                             >
                                 Sign In

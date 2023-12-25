@@ -7,13 +7,17 @@ import {
 import { router } from './Routes/Routes.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
-      <div className='max-w-screen-xl mx-auto'>
-        <RouterProvider router={router} />
-      </div>
-    </AuthProvider>
-
+    <DndProvider backend={HTML5Backend}>
+      <AuthProvider>
+        <div className='max-w-screen-xl mx-auto'>
+          <RouterProvider router={router} />
+        </div>
+      </AuthProvider>
+    </DndProvider>
   </React.StrictMode>,
 )
