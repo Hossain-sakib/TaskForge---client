@@ -1,23 +1,37 @@
-import { useEffect, useState } from 'react';
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import TodosCard from '../TodosCard/TodosCard';
+import useAuth from '../../Hooks/useAuth';
+import { useQuery } from '@tanstack/react-query';
 
 const CompletedTodos = () => {
   const axiosPublic = useAxiosPublic();
-  const [todos, setTodos] = useState([]);
+  const { user } = useAuth();
+  const userEmail = user?.email;
 
-  useEffect(() => {
-    axiosPublic.get('/todos')
-      .then(response => setTodos(response.data))
-      .catch(error => console.error('Error fetching todos:', error));
-  }, [axiosPublic]);
-  const completedTodos = todos.filter(todo => todo.status === 'completed');
+  const { data: todos = [], refetch } = useQuery({
+    queryKey: ['todos', userEmail],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/todos?email=${user.email}`);
+      return res.data;
+    },
+  });
+
+  const handleActionComplete = () => {
+    refetch();
+  };
+
   return (
     <div>
       <h1 className='text-center text-2xl font-bold text-blue-600'>Completed Task</h1>
-      {completedTodos.map(todo => (
-        <TodosCard key={todo._id} todo={todo}></TodosCard>
-      ))}
+      {todos
+        .filter((todo) => todo.status === 'completed')
+        .map((todo) => (
+          <TodosCard
+            key={todo._id}
+            todo={todo}
+            onActionComplete={handleActionComplete}
+          ></TodosCard>
+        ))}
     </div>
   );
 };

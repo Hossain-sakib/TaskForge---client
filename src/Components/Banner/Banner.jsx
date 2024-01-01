@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
-
+import useAuth from "../../Hooks/useAuth";
 
 const Banner = () => {
+    const { user } = useAuth();
+
     return (
         <div>
             <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/8Mpvvmn/glenn-carstens-peters-RLw-UC03-Gwc-unsplash.jpg)' }}>
@@ -13,7 +15,6 @@ const Banner = () => {
                         <div className="mb-5">
                             <TypeAnimation
                                 sequence={[
-                                   
                                     'Elevate Your Efficiency Today!',
                                     1000,
                                     'Let the Magic of Productivity Begin!',
@@ -29,7 +30,12 @@ const Banner = () => {
                                 repeat={Infinity}
                             />
                         </div>
-                        <Link to='/signin' className="btn btn-outline rounded-none border-white text-white hover:bg-blue-800 overflow-hidden transition-all hover:scale-105  hover:shadow-2xl">Let's Explore</Link>
+                        
+                        {user ? (
+                            <Link to='/dashboard' className="btn btn-outline rounded-none border-white text-white hover:bg-blue-800 overflow-hidden transition-all hover:scale-105 hover:shadow-2xl">Go to Dashboard</Link>
+                        ) : (
+                            <Link to='/signin' className="btn btn-outline rounded-none border-white text-white hover:bg-blue-800 overflow-hidden transition-all hover:scale-105 hover:shadow-2xl">Let's Explore</Link>
+                        )}
                     </div>
                 </div>
             </div>

@@ -3,12 +3,10 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useForm, Controller } from "react-hook-form";
-import useAuth from "../../Hooks/UseAuth";
 import GoogleSignIn from "../../Components/GoogleSignIn/GoogleSignIn";
-
+import useAuth from "../../Hooks/UseAuth";
 const imagebb_key = import.meta.env.VITE_IMAGEBB_KEY;
 const imgbb_api = `https://api.imgbb.com/1/upload?key=${imagebb_key}`;
-
 const SignUp = () => {
   const [signUpError, setSignUpError] = useState("");
   const axiosPublic = useAxiosPublic();
@@ -19,7 +17,6 @@ const SignUp = () => {
   const handleSignUp = async (formData) => {
     const { name, email, password, photo } = formData;
 
-    try {
       if (password.length < 6) {
         setSignUpError("Password should be at least 6 characters.");
         return;
@@ -42,27 +39,21 @@ const SignUp = () => {
       const result = await signUpUser(email, password);
       const user = result.user;
       console.log(user);
-
       const formDataWithPhoto = new FormData();
       formDataWithPhoto.append("image", photo[0]);
-
       const res = await axiosPublic.post(imgbb_api, formDataWithPhoto, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-
       const photoUrl = res.data.data.url;
-
       await updateUser(name, photoUrl);
-
       const userInfo = {
         email: email,
         name: name,
         userImage: photoUrl,
       };
-
-      const saveResult = await axiosPublic.post("/users", userInfo);
+      const saveResult = await axiosPublic.post("/users",userInfo);
       if (saveResult.data.insertedId) {
         Swal.fire({
           position: "center",
@@ -73,9 +64,6 @@ const SignUp = () => {
       });
         navigate("/dashboard");
       }
-    } catch (error) {
-      console.error("Error during sign up:", error);
-    }
   };
 
   return (
@@ -113,7 +101,7 @@ const SignUp = () => {
               <input
                 type="file"
                 {...register("photo")}
-                className="file-input border-blue-400 rounded-none input-bordered"
+                className="h-12 file-input file-input-bordered file-input-xs w-full max-w-xs border-blue-400 rounded-none"
                 required
               />
             </div>
@@ -162,7 +150,7 @@ const SignUp = () => {
               />
             </div>
             {signUpError && (
-              <p className="text-xs text-center text-red-600 my-4">
+              <p className="text-center mb-4 text-red-500">
                 {signUpError}
               </p>
             )}

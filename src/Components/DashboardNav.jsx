@@ -30,7 +30,7 @@ const DashboardNav = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                             </label>
                         </div>
-                        <Link className="flex-1" to='/'><img className="btn  btn-ghost overflow-hidden transition-all hover:scale-105  hover:shadow-2xl" src="https://i.ibb.co/RNDnqJf/Taskforge-logo.png" alt="" /></Link>
+                        <Link className="flex-1"><img className="btn  btn-ghost overflow-hidden transition-all hover:scale-105  hover:shadow-2xl" src="https://i.ibb.co/RNDnqJf/Taskforge-logo.png" alt="" /></Link>
                         <div className="flex-none hidden lg:block">
                             <ul className="menu menu-horizontal">
                                 <div className="dropdown dropdown-end">

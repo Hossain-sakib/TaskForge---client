@@ -24,7 +24,7 @@ const GoogleSignIn = () => {
             }
             axiosPublic.post('/users',userInfo)
             .then(res=>{
-                navigate('/');
+                navigate('/dashboard');
             })
             Swal.fire({
                 title: "Successfully signed in",

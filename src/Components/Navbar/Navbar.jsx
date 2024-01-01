@@ -8,6 +8,7 @@ const Navbar = () => {
     const navLinks =
         <>
             <NavLink to="/"><li className="w-full btn btn-sm btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl ">Home</li></NavLink>
+            <NavLink to="/dashboard"><li className="w-full btn btn-sm btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl ">Dashboard</li></NavLink>
             <NavLink to="/"><li className="w-full btn btn-sm btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl ">About Us</li></NavLink>
             <NavLink to="/"><li className="w-full btn btn-sm btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl ">Contact</li></NavLink>
            
@@ -64,7 +65,7 @@ const Navbar = () => {
                                 </NavLink>
                                 <div
                                     onClick={signOutUser}
-                                    className="btn btn-sm btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl "
+                                    className="btn btn-sm text-red-600 btn-outline rounded-none bg-blue-200 hover:bg-blue-400 font-bold overflow-hidden transition-all hover:scale-105  hover:shadow-2xl "
                                 >
                                     Sign Out <AiOutlineLogout className="text-xl"></AiOutlineLogout>
                                 </div>

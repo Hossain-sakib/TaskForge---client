@@ -41,7 +41,6 @@ const SignIn = () => {
             <div className="hero-content flex-col">
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 rounded-none border-2 border-blue-600">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body bg-blue-50">
-                        {error && <div className="mb-4 text-red-500">{error}</div>}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold text-blue-500">Email</span>
@@ -68,6 +67,7 @@ const SignIn = () => {
                             <label className="label">
                                 <a href="#" className="label-text-alt text-blue-600 hover:underline hover:font-semibold hover:text-blue-400">Forgot password?</a>
                             </label>
+                            {error && <p className="mb-4 text-center text-red-500">{error}</p>}
                         </div>
                         <div className="form-control mt-6">
                             <button

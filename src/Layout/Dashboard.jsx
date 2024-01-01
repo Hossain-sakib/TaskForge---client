@@ -6,7 +6,7 @@ import CompletedTodos from "../Components/CompletedTodos/CompletedTodos";
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="bg-blue-200 min-h-screen">
       <DashboardNav></DashboardNav>
       <div className="mt-16">
         <TodosAdd></TodosAdd>
